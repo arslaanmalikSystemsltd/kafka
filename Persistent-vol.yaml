@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zookeeper-pv                                                
+spec:
+  capacity:
+    storage: 10Gi                                          
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle                   
+  storageClassName: confluent-storage-class                        
+  hostPath:
+     path: /mnt/data/zookeeper-data 
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kafka-pv                                                
+spec:
+  capacity:
+    storage: 10Gi                                          
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle                   
+  storageClassName: confluent-storage-class                        
+  hostPath:
+     path: /mnt/data/kafka-data    
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ksqldb-pv                                                
+spec:
+  capacity:
+    storage: 10Gi                                          
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle                   
+  storageClassName: confluent-storage-class                        
+  hostPath:
+     path: /mnt/data/ksqldb-data 
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: controlcenter-pv                                                
+spec:
+  capacity:
+    storage: 10Gi                                          
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle                   
+  storageClassName: confluent-storage-class                        
+  hostPath:
+     path: /mnt/data/controlcenter-data      
